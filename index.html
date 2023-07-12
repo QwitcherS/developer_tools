@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>DevTools</title>
-</head>
-<body>
-  <div class="conteiner">
-    <div class="content">
-      <h1 class="heading">Выбери сложность</h1>
-      <div class="levels">
-        <div class="level" id="level_1">1</div>
-        <div class="level" id="level_2">2</div>
-        <div class="level" id="level_3">3</div>
-      </div>
-      <button class="button" id="btnStart">Старт</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DevTools</title>
+  </head>
+  <body>
+    <div class="conteiner center">
+      <form class="content">
+        <h1 class="heading" id="headingLevel">Выбери сложность</h1>
+        <div class="radio-toolbar">
+          <input type="radio" id="radio1" name="difficulty" value="easy" />
+          <label for="radio1">1</label>
+
+          <input type="radio" id="radio2" name="difficulty" value="medium" />
+          <label for="radio2">2</label>
+
+          <input type="radio" id="radio3" name="difficulty" value="hard" />
+          <label for="radio3">3</label>
+        </div>
+        <button type="submit" class="button" id="btnStart">Старт</button>
+      </form>
     </div>
-  </div>
-</body>
+  </body>
 </html>
