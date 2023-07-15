@@ -1,8 +1,7 @@
-import { initRenderLevelGame } from "./page-game-level.js";
+import { initRenderLevelGame } from './page-game-level.js'
 
-export function renderRadioComponents () {
-
-  const appHtml = `
+export function renderRadioComponents() {
+    const appHtml = `
   <div class="conteiner center">
   <form class="content">
     <h1 class="heading" id="headingLevel">Выбери сложность</h1>
@@ -19,49 +18,48 @@ export function renderRadioComponents () {
     <button type="submit" class="button" id="btnStart">Старт</button>
   </form>
 </div>
-`;
+`
 
-app.innerHTML = appHtml;
-  
-const levelData = {
-  difficulty: 'medium', 
-  numCards: 12
-};
+    app.innerHTML = appHtml
 
-const difficultyInputs = document.querySelectorAll('.radio-toolbar input[name="difficulty"]');
+    const levelData = {
+        difficulty: 'medium',
+        numCards: 12,
+    }
 
-const gameButton = document.querySelector('#game-button');
+    const difficultyInputs = document.querySelectorAll(
+        '.radio-toolbar input[name="difficulty"]',
+    )
 
-function levelNumCards(){
-  switch (gameData.difficulty) {
-    case 'easy':
-        levelData.numCards = 6;
-        break;
-    case 'medium':
-        levelData.numCards = 12;
-        break;
-    case 'hard':
-        levelData.numCards = 18;
-        break;
-}
-};
+    const gameButton = document.querySelector('#game-button')
 
-difficultyInputs.forEach(input => {
-  input.addEventListener('change', () => {
-      levelData.difficulty = input.value;
-      levelNumCards();
-  });
-});
+    function levelNumCards() {
+        switch (gameData.difficulty) {
+            case 'easy':
+                levelData.numCards = 6
+                break
+            case 'medium':
+                levelData.numCards = 12
+                break
+            case 'hard':
+                levelData.numCards = 18
+                break
+        }
+    }
 
-gameButton.addEventListener('click', () => {
-  levelGame(levelData.difficulty);
-});
+    difficultyInputs.forEach((input) => {
+        input.addEventListener('change', () => {
+            levelData.difficulty = input.value
+            levelNumCards()
+        })
+    })
 
+    gameButton.addEventListener('click', () => {
+        levelGame(levelData.difficulty)
+    })
 
-function levelGame(difficulty) {
-  console.log(`Запуск игры с уровнем сложности "${difficulty}"`);
-  initRenderLevelGame(difficulty);
-};
-
-
+    function levelGame(difficulty) {
+        console.log(`Запуск игры с уровнем сложности "${difficulty}"`)
+        initRenderLevelGame(difficulty)
+    }
 }
