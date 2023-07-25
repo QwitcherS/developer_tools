@@ -1,13 +1,13 @@
+body {
+    background: var(--blue-120, #004980);
+}
+
 .center {
     padding-left: calc(50% - 600px);
     padding-right: calc(50% - 600px);
 }
 
-body {
-    background: var(--blue-120, #004980);
-}
-
-.conteiner {
+.container {
     margin-top: 158px;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ body {
     margin-top: 52px;
     color: #004980;
     text-align: center;
-    font-family: StratosSkyeng;
+    font-family: Stratos;
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -54,7 +54,7 @@ body {
     border: 1px solid #fff;
     border-radius: 12px;
     background-color: #fff;
-    font-family: StratosSkyeng;
+    font-family: Stratos;
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -84,7 +84,6 @@ body {
     border: 1px solid #7ac100;
     border-radius: 12px;
     background-color: #7ac100;
-    font-family: StratosSkyeng;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
