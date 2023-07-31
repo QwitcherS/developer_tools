@@ -2,13 +2,13 @@
     // webpackBootstrap
     /******/ 'use strict'
     /******/ // The require scope
-    /******/ var __webpack_require__ = {}
+    /******/ var webpackRequire = {}
     /******/
     /************************************************************************/
     /******/ /* webpack/runtime/make namespace object */
     /******/ ;(() => {
         /******/ // define __esModule on exports
-        /******/ __webpack_require__.r = (exports) => {
+        /******/ webpackRequire.r = (exports) => {
             /******/ if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
                 /******/ Object.defineProperty(exports, Symbol.toStringTag, {
                     value: 'Module',
@@ -24,11 +24,11 @@
     })()
     /******/
     /************************************************************************/
-    var __webpack_exports__ = {}
+    var webpackExports = {}
     /*!******************!*\
   !*** ./index.js ***!
   \******************/
-    __webpack_require__.r(__webpack_exports__)
+    webpackRequire.r(webpackExports)
     Object(
         (function webpackMissingModule() {
             var e = new Error(
@@ -42,7 +42,7 @@
     Object(
         (function webpackMissingModule() {
             var e = new Error(
-                "Cannot find module './components/level-game-pages.js'",
+                "Cannot find module './components/level-pages.js'",
             )
             e.code = 'MODULE_NOT_FOUND'
             throw e

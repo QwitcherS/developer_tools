@@ -1,4 +1,4 @@
-import cards from './game-cards.js'
+import cards from './game-unit.js'
 
 export function initRenderLevelGame(difficulty) {
     const app = document.getElementById('app')
@@ -135,11 +135,12 @@ function flipCard(event) {
         if (flippedCard1.dataset.cardName === flippedCard2.dataset.cardName) {
             alert('Вы победили!')
         } else {
-            setTimeout(() => {
-                flippedCards.forEach((card) => {
-                    card.classList.toggle('flipped', false)
-                })
-            }, 1000)
+            alert('Вы проиграли!')
+            // setTimeout(() => {
+            //     flippedCards.forEach((card) => {
+            //         card.classList.toggle('flipped', false)
+            //     })
+            // }, 1000)
         }
     }
 }

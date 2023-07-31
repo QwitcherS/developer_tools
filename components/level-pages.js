@@ -3,22 +3,22 @@ import { initRenderLevelGame } from './page-level.js'
 export function renderRadioComponents() {
     const app = document.getElementById('app')
     const appHtml = `
-  <div class="conteiner center">
-  <form class="content">
-    <h1 class="heading" id="headingLevel">Выбери сложность</h1>
-    <div class="radio-toolbar">
-      <input type="radio" id="radio1" name="difficulty" value="easy" />
-      <label for="radio1">1</label>
-
-      <input type="radio" id="radio2" name="difficulty" value="medium" />
-      <label for="radio2">2</label>
-
-      <input type="radio" id="radio3" name="difficulty" value="hard" />
-      <label for="radio3">3</label>
-    </div>
-    <button type="submit" class="button" id="btnStart">Старт</button>
-  </form>
-</div>
+    <form class="header__form ">
+    <h1 class="nav__name">
+        Выбери сложность
+    </h1>
+        <div class="radio-toolbar"> 
+            <input type="radio" id="radio1" name="difficulty" value="easy">
+            <label for="radio1">1</label>
+            
+            <input type="radio" id="radio2" name="difficulty" value="medium">
+            <label for="radio2">2</label>
+            
+            <input type="radio" id="radio3" name="difficulty" value="hard">
+            <label for="radio3">3</label>
+        </div> 
+    <button id="game-button" class="nav__button">Старт</button>
+</form>
 `
 
     app.innerHTML = appHtml
@@ -34,7 +34,7 @@ export function renderRadioComponents() {
 
     const gameButton = document.querySelector('#game-button')
 
-    function levelNumCards() {
+    function levelNumCards(gameData) {
         switch (gameData.difficulty) {
             case 'easy':
                 levelData.numCards = 6
