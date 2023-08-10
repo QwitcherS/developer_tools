@@ -3,7 +3,7 @@ import { initRenderLevelGame } from './page-level.js'
 export function renderRadioComponents() {
     const app = document.getElementById('app')
     const appHtml = `
-    <form class="header__form ">
+    <form class="header__form">
     <h1 class="nav__name">
         Выбери сложность
     </h1>
