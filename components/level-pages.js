@@ -34,8 +34,8 @@ export function renderRadioComponents() {
 
     const gameButton = document.querySelector('#game-button')
 
-    function levelNumCards(gameData) {
-        switch (gameData.difficulty) {
+    function levelNumCards(levelData) {
+        switch (levelData.difficulty) {
             case 'easy':
                 levelData.numCards = 6
                 break
@@ -51,7 +51,7 @@ export function renderRadioComponents() {
     difficultyInputs.forEach((input) => {
         input.addEventListener('change', () => {
             levelData.difficulty = input.value
-            levelNumCards()
+            levelNumCards(levelData)
         })
     })
 
