@@ -23,26 +23,22 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new CopyPlugin({
+            patterns: [{ from: './static', to: 'static' }],
+        }),
+        new HtmlWebpackPlugin({
+            template: './index.html',
+        }),
+        new MiniCssExtractPlugin(),
+    ],
     optimization: {
         minimizer: ['...', new CssMinimizerPlugin()],
     },
-    devtool:
-        process.env.NODE_ENV === 'production'
-            ? 'hidden-source-map'
-            : 'source-map',
+    devtool: process.env.NODE_ENV === 'production' ? false : 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         clean: true,
     },
-    plugins: [
-        new CopyPlugin({
-            patterns: [
-                { from: 'static', to: 'static', noErrorOnMissing: true },
-            ],
-        }),
-        new HtmlWebpackPlugin({
-            template: './index.html',
-        }),
-    ],
 }
