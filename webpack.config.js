@@ -4,10 +4,15 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 module.exports = {
-    entry: './index.js',
+    entry: './index.ts',
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -23,15 +28,9 @@ module.exports = {
             },
         ],
     },
-    plugins: [
-        new CopyPlugin({
-            patterns: [{ from: './static', to: 'static' }],
-        }),
-        new HtmlWebpackPlugin({
-            template: './index.html',
-        }),
-        new MiniCssExtractPlugin(),
-    ],
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
     optimization: {
         minimizer: ['...', new CssMinimizerPlugin()],
     },
@@ -41,4 +40,13 @@ module.exports = {
         filename: 'bundle.js',
         clean: true,
     },
+    plugins: [
+        new MiniCssExtractPlugin(),
+        new CopyPlugin({
+            patterns: [{ from: './static', to: 'static' }],
+        }),
+        new HtmlWebpackPlugin({
+            template: './index.html',
+        }),
+    ],
 }
