@@ -2,9 +2,9 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./components/game-unit.js":
+/***/ "./components/game-unit.ts":
 /*!*********************************!*\
-  !*** ./components/game-unit.js ***!
+  !*** ./components/game-unit.ts ***!
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const cards = [
+var cards = [
     {
         front: './static/images/6s.png',
         back: './static/images/card_back.png',
@@ -333,16 +333,15 @@ const cards = [
         back: './static/images/card_back.png',
         name: 'card32',
     },
-]
-
+];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cards);
 
 
 /***/ }),
 
-/***/ "./components/level-pages.js":
+/***/ "./components/level-pages.ts":
 /*!***********************************!*\
-  !*** ./components/level-pages.js ***!
+  !*** ./components/level-pages.ts ***!
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -350,80 +349,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   renderRadioComponents: () => (/* binding */ renderRadioComponents)
 /* harmony export */ });
-/* harmony import */ var _page_level_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page-level.js */ "./components/page-level.js");
-
+/* harmony import */ var _page_level__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page-level */ "./components/page-level.ts");
 
 function renderRadioComponents() {
-    const app = document.getElementById('app')
-    const appHtml = `
-    <form class="header__form">
-    <h1 class="nav__name">
-        Выбери сложность
-    </h1>
-        <div class="radio-toolbar"> 
-            <input type="radio" id="radio1" name="difficulty" value="easy">
-            <label for="radio1">1</label>
-            
-            <input type="radio" id="radio2" name="difficulty" value="medium">
-            <label for="radio2">2</label>
-            
-            <input type="radio" id="radio3" name="difficulty" value="hard">
-            <label for="radio3">3</label>
-        </div> 
-    <button id="game-button" class="nav__button">Старт</button>
-</form>
-`
-
-    app.innerHTML = appHtml
-
-    const levelData = {
+    var app = document.getElementById('app');
+    var appHtml = "\n<header class=\"header center\">\n<form class=\"header__form \">\n    <h1 class=\"header__name\">\n        \u0412\u044B\u0431\u0435\u0440\u0438 \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u044C\n    </h1>\n        <div class=\"header__toolbar\"> \n            <input type=\"radio\" id=\"radio1\" name=\"difficulty\" value=\"easy\">\n            <label for=\"radio1\">1</label>\n            \n            <input type=\"radio\" id=\"radio2\" name=\"difficulty\" value=\"medium\">\n            <label for=\"radio2\">2</label>\n            \n            <input type=\"radio\" id=\"radio3\" name=\"difficulty\" value=\"hard\">\n            <label for=\"radio3\">3</label>\n        </div> \n    <button id=\"game-button\" class=\"header__button\">\u0421\u0442\u0430\u0440\u0442</button>\n</form>\n</header>\n";
+    app.innerHTML = appHtml;
+    var levelData = {
         difficulty: 'medium',
         numCards: 12,
-    }
-
-    const difficultyInputs = document.querySelectorAll(
-        '.radio-toolbar input[name="difficulty"]',
-    )
-
-    const gameButton = document.querySelector('#game-button')
-
-    function levelNumCards(levelData) {
+    };
+    var difficultyInputs = document.querySelectorAll('.header__toolbar input[name="difficulty"]');
+    var gameButton = document.getElementById('game-button');
+    function levelNumCards() {
         switch (levelData.difficulty) {
             case 'easy':
-                levelData.numCards = 6
-                break
+                levelData.numCards = 6;
+                break;
             case 'medium':
-                levelData.numCards = 12
-                break
+                levelData.numCards = 12;
+                break;
             case 'hard':
-                levelData.numCards = 18
-                break
+                levelData.numCards = 18;
+                break;
         }
     }
-
-    difficultyInputs.forEach((input) => {
-        input.addEventListener('change', () => {
-            levelData.difficulty = input.value
-            levelNumCards(levelData)
-        })
-    })
-
-    gameButton.addEventListener('click', () => {
-        levelGame(levelData.difficulty)
-    })
-
+    difficultyInputs.forEach(function (input) {
+        input.addEventListener('change', function () {
+            levelData.difficulty = input.value;
+            levelNumCards();
+        });
+    });
+    gameButton.addEventListener('click', function () {
+        levelGame(levelData.difficulty);
+    });
     function levelGame(difficulty) {
-        console.log(`Запуск игры с уровнем сложности "${difficulty}"`)
-        ;(0,_page_level_js__WEBPACK_IMPORTED_MODULE_0__.initRenderLevelGame)(difficulty)
+        (0,_page_level__WEBPACK_IMPORTED_MODULE_0__.initRenderLevelGame)(difficulty);
     }
 }
 
 
 /***/ }),
 
-/***/ "./components/page-level.js":
+/***/ "./components/page-level.ts":
 /*!**********************************!*\
-  !*** ./components/page-level.js ***!
+  !*** ./components/page-level.ts ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -431,151 +401,168 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   initRenderLevelGame: () => (/* binding */ initRenderLevelGame)
 /* harmony export */ });
-/* harmony import */ var _game_unit_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game-unit.js */ "./components/game-unit.js");
+/* harmony import */ var _game_unit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game-unit */ "./components/game-unit.ts");
+/* harmony import */ var _level_pages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./level-pages */ "./components/level-pages.ts");
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 
 
 function initRenderLevelGame(difficulty) {
-    const app = document.getElementById('app')
-    let memoryTimeoutId
-    const shuffledCards = shuffle([..._game_unit_js__WEBPACK_IMPORTED_MODULE_0__["default"], ..._game_unit_js__WEBPACK_IMPORTED_MODULE_0__["default"]])
-
-    const appHtml = `
-    <div class="top-container center">
-  <header class="container center">
-           <div class="head__box">
-          <span class="head__time-new">min </span>
-          <span class="head__time-new">sek</span>
-          </div> 
-          <div class="head center"> 
-          <span class="head__time" id="seconds">00.00</span>
-          <button id="start-button" class="nav__button">Начать заново</button>
-          </div> 
-          </header>
-    <div id="card" class="cards">
-     ${renderCards(difficulty, shuffledCards)}
-       </div>
-       </div>
-       `
-    app.innerHTML = appHtml
-
-    const cardElements = document.querySelectorAll('.card')
-
-    cardElements.forEach((card) => {
-        card.addEventListener('click', flipCard)
-    })
-
-    memoryTimeoutId = setTimeout(() => {
-        cardElements.forEach((card) => {
-            card.classList.remove('flipped')
-        })
-    }, 5000)
-
-    cardElements.forEach((card) => {
-        card.classList.add('flipped')
-    })
-
-    const startTime = new Date().getTime()
-    const headTime = document.querySelector('.head__time')
-    const timerInterval = setInterval(() => {
-        const currentTime = new Date().getTime()
-        const elapsedTime = currentTime - startTime
-        const minutes = Math.floor(elapsedTime / 60000)
-        const seconds = Math.floor((elapsedTime % 60000) / 1000)
-        const formattedTime = `${String(minutes).padStart(2, '0')}:${String(
-            seconds,
-        ).padStart(2, '0')}`
-        headTime.textContent = formattedTime
-    }, 1000)
-
-    const startButton = document.getElementById('start-button')
-    startButton.addEventListener('click', () => {
-        clearInterval(timerInterval)
-        clearTimeout(memoryTimeoutId)
-        cardElements.forEach((card) => {
-            card.classList.remove('flipped')
-        })
-        initRenderLevelGame(difficulty)
-    })
-
+    var app = document.getElementById('app');
+    // let formattedTime: string
+    var shuffledCards = shuffle(__spreadArray(__spreadArray([], _game_unit__WEBPACK_IMPORTED_MODULE_0__["default"], true), _game_unit__WEBPACK_IMPORTED_MODULE_0__["default"], true));
+    var appHtml = "\n    <div class=\"top-container center\">\n  <header class=\"container\">\n           <div class=\"head__box\">\n          <span class=\"head__time-new\">min </span>\n          <span class=\"head__time-new\">sek</span>\n          </div> \n          <div class=\"head\"> \n          <span class=\"head__time\" id=\"seconds\">00.00</span>\n          <button id=\"start-button\" class=\"header__button\">\u041D\u0430\u0447\u0430\u0442\u044C \u0437\u0430\u043D\u043E\u0432\u043E</button>\n          </div> \n          </header>\n    <div id=\"card\" class=\"cards\">\n     ".concat(renderCards(difficulty, shuffledCards), "\n       </div>\n       </header>\n       </div>\n       ");
+    app.innerHTML = appHtml;
+    var cardElements = document.querySelectorAll('.card');
+    cardElements.forEach(function (card) {
+        card.addEventListener('click', function (event) {
+            return flipCard(event, timerInterval);
+        });
+    });
+    var memoryTimeoutId = setTimeout(function () {
+        cardElements.forEach(function (card) {
+            card.classList.remove('flipped');
+        });
+    }, 5000);
+    cardElements.forEach(function (card) {
+        card.classList.add('flipped');
+    });
+    var startTime = new Date().getTime();
+    var headTime = document.querySelector('.head__time');
+    var timerInterval = setInterval(function () {
+        var currentTime = new Date().getTime();
+        var elapsedTime = currentTime - startTime;
+        var minutes = Math.floor(elapsedTime / 60000);
+        var seconds = Math.floor((elapsedTime % 60000) / 1000);
+        var formattedTime = "".concat(String(minutes).padStart(2, '0'), ":").concat(String(seconds).padStart(2, '0'));
+        headTime.textContent = formattedTime;
+    }, 1000);
+    var startButton = document.getElementById('start-button');
+    startButton.addEventListener('click', function () {
+        clearInterval(timerInterval);
+        clearTimeout(memoryTimeoutId);
+        cardElements.forEach(function (card) {
+            card.classList.remove('flipped');
+        });
+        initRenderLevelGame(difficulty);
+    });
     function renderCards(difficulty, cards) {
-        const numCards = getNumCards(difficulty) * 2
-        const selectedCards = cards.slice(0, Math.floor(numCards / 2))
-        const duplicatedCards = [...selectedCards, ...selectedCards]
-        const shuffledCards = shuffle(duplicatedCards)
-        let cardsHtml = ''
-        for (let i = 0; i < shuffledCards.length; i++) {
-            const card = shuffledCards[i]
-            const cardHtml = `
-    <div data-name="${card.name}"  class="card">
-      <div  class="card__back">
-        <img src="${card.front}" alt="">
-      </div>
-      <div class="card__front">
-        <img src="${card.back}" alt="">
-      </div>
-    </div>
-  `
-            cardsHtml += cardHtml
+        var numCards = getNumCards(difficulty) * 2;
+        var selectedCards = cards.slice(0, Math.floor(numCards / 2));
+        var duplicatedCards = __spreadArray(__spreadArray([], selectedCards, true), selectedCards, true);
+        var shuffledCards = shuffle(duplicatedCards);
+        var cardsHtml = '';
+        for (var i = 0; i < shuffledCards.length; i++) {
+            var card = shuffledCards[i];
+            var cardHtml = "\n    <div data-card-name=\"".concat(card.name, "\" class=\"card\">\n      <div  class=\"card__front\">\n        <img src=\"").concat(card.front, "\" alt=\"\">\n      </div>\n      <div class=\"card__back\">\n        <img src=\"").concat(card.back, "\" alt=\"\">\n      </div>\n    </div>\n  ");
+            cardsHtml += cardHtml;
         }
-        return cardsHtml
+        return cardsHtml;
     }
 }
-
 function shuffle(array) {
-    let currentIndex = array.length,
-        randomIndex
+    var _a;
+    var currentIndex = array.length, randomIndex;
     while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex)
-        currentIndex--
-        ;[array[currentIndex], array[randomIndex]] = [
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        _a = [
             array[randomIndex],
             array[currentIndex],
-        ]
+        ], array[currentIndex] = _a[0], array[randomIndex] = _a[1];
     }
-
-    return array
+    return array;
 }
 function getNumCards(difficulty) {
     switch (difficulty) {
         case 'easy':
-            return 6
+            return 3;
         case 'medium':
-            return 12
+            return 6;
         case 'hard':
-            return 18
+            return 9;
         default:
-            return 6
+            return 3;
     }
 }
-
-function flipCard(event) {
-    const currentCard = event.currentTarget
-
-    if (
-        currentCard.classList.contains('flipped') ||
-        document.querySelectorAll('.flipped').length === 2
-    ) {
-        return
+var currentCard = null;
+var previousCard = null;
+var isFlippingCards = false;
+function flipCard(event, timerInterval) {
+    var _a, _b, _c, _d;
+    if (isFlippingCards) {
+        return;
     }
-
-    currentCard.classList.toggle('flipped')
-
-    const flippedCards = document.querySelectorAll('.flipped')
-
-    if (flippedCards.length === 2) {
-        const flippedCard1 = flippedCards[0]
-        const flippedCard2 = flippedCards[1]
-
-        if (flippedCard1.dataset.cardName === flippedCard2.dataset.cardName) {
-            alert('Вы победили!')
-        } else {
-            alert('Вы проиграли!')
-            // setTimeout(() => {
-            //     flippedCards.forEach((card) => {
-            //         card.classList.toggle('flipped', false)
-            //     })
-            // }, 1000)
+    var card = event.currentTarget;
+    if (card.classList.contains('flipped')) {
+        return;
+    }
+    if (currentCard === null) {
+        currentCard = card;
+        card.classList.toggle('flipped');
+    }
+    else if (previousCard === null && currentCard !== card) {
+        previousCard = card;
+        card.classList.toggle('flipped');
+        isFlippingCards = true;
+        var currentCardFront = (_a = currentCard
+            .querySelector('.card__front img')) === null || _a === void 0 ? void 0 : _a.getAttribute('src');
+        var previousCardFront = (_b = previousCard
+            .querySelector('.card__front img')) === null || _b === void 0 ? void 0 : _b.getAttribute('src');
+        if (currentCardFront === previousCardFront) {
+            currentCard.isMatched = true;
+            previousCard.isMatched = true;
+            var allCards = document.querySelectorAll('.card');
+            var allMatched = Array.prototype.slice
+                .call(allCards)
+                .every(function (card) { return card.isMatched; });
+            if (allMatched) {
+                var formattedTime = (_c = document.querySelector('.head__time')) === null || _c === void 0 ? void 0 : _c.textContent;
+                clearInterval(timerInterval);
+                if (formattedTime) {
+                    renderWinPage(formattedTime, true);
+                }
+            }
+            currentCard = null;
+            previousCard = null;
+            isFlippingCards = false;
         }
+        else {
+            var formattedTime = (_d = document.querySelector('.head__time')) === null || _d === void 0 ? void 0 : _d.textContent;
+            clearInterval(timerInterval);
+            if (formattedTime) {
+                renderWinPage(formattedTime, false);
+            }
+            setTimeout(function () {
+                clearInterval(timerInterval);
+                // currentCard.classList.remove('flipped')
+                // previousCard.classList.remove('flipped')
+                currentCard = null;
+                previousCard = null;
+                isFlippingCards = false;
+            }, 1000);
+        }
+    }
+}
+function renderWinPage(formattedTime, gameResult) {
+    var app = document.querySelector('#app');
+    var winPageHtml = "\n    <div class=\"fin__game\">\n        <div class=\"fin__game-container\">\n            <div class=\"fin__game-nav\">\n                ".concat(gameResult
+        ? '<span class="fin__game_imgwin"></span>'
+        : '<span class="fin__game_imgconq"></span>', "\n                <div class=\"fin__game_window\"> \n                    <p class=\"fin__game_text\">").concat(gameResult ? 'Вы выиграли!' : 'Вы проиграли!', "</p>\n                </div> \n                <div class=\"fin__game_tex\"> \n                    <p class=\"fin__game_text2\">\u0417\u0430\u0442\u0440\u0430\u0447\u0435\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F:</p>\n                    <div>\n                    <p class=\"fin__game_time\">").concat(formattedTime, "</p>  \n                </div>          \n                    <button id=\"restart-button\" class=\"header__button\">\u0418\u0433\u0440\u0430\u0442\u044C \u0441\u043D\u043E\u0432\u0430</button>\n                </div>\n            </div>\n        </div>\n    </div>\n  ");
+    app.innerHTML = winPageHtml;
+    var reStartGame = document.querySelector('#restart-button');
+    reStartGame.addEventListener('click', function () {
+        reStartGameButton();
+    });
+    function reStartGameButton() {
+        (0,_level_pages__WEBPACK_IMPORTED_MODULE_1__.renderRadioComponents)();
     }
 }
 
@@ -642,13 +629,12 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /*!******************!*\
-  !*** ./index.js ***!
+  !*** ./index.ts ***!
   \******************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_level_pages_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/level-pages.js */ "./components/level-pages.js");
+/* harmony import */ var _components_level_pages__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/level-pages */ "./components/level-pages.ts");
 
-
-(0,_components_level_pages_js__WEBPACK_IMPORTED_MODULE_0__.renderRadioComponents)()
+(0,_components_level_pages__WEBPACK_IMPORTED_MODULE_0__.renderRadioComponents)();
 
 })();
 
