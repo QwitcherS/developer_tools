@@ -195,7 +195,7 @@ body {
 }
 
 .fin__game {
-    background: url('./dist/static/image/3.jpg') no-repeat center;
+    background: url('../dist/static/images/3.jpg') no-repeat center;
     background-blend-mode: multiply;
     background-color: rgb(0 0 0 40%);
 }
@@ -231,18 +231,18 @@ body {
 
 .fin__game_imgwin {
     margin-top: 26px;
-    width: 96px;
-    height: 96px;
+    width: 91px;
+    height: 91px;
     flex-shrink: 0;
-    background-image: url('./dist/static/image/Image.png');
+    background-image: url('../dist/static/images/imgWin.png');
 }
 
 .fin__game_imgconq {
-    margin-top: 32px;
-    width: 96px;
-    height: 96px;
+    margin-top: 26px;
+    width: 91px;
+    height: 91px;
     flex-shrink: 0;
-    background-image: url('./dist/static/image/dead.png');
+    background-image: url('../dist/static/images/imgLose.png');
 }
 
 .fin__game_tex {
@@ -253,7 +253,7 @@ body {
 }
 
 .fin__game_text {
-    margin-top: 8px;
+    margin: 0;
     font-family: StratosSkyeng, sans-serif;
     font-size: 40px;
     font-style: normal;
@@ -263,7 +263,7 @@ body {
 }
 
 .fin__game_text2 {
-    margin-top: 28px;
+    margin-top: 27px;
     color: #000;
     font-family: StratosSkyeng, sans-serif;
     font-size: 24px;
@@ -273,7 +273,7 @@ body {
 }
 
 .fin__game_time {
-    margin-top: 10px;
+    margin-top: 0;
     color: #000;
     font-family: StratosSkyeng, sans-serif;
     font-size: 64px;
