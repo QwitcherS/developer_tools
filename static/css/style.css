@@ -234,7 +234,7 @@ body {
     width: 91px;
     height: 91px;
     flex-shrink: 0;
-    background-image: url('./static/images/win.jpg');
+    background-image: url('../images/imgWin.png');
 }
 
 .fin__game_imgconq {
@@ -242,7 +242,7 @@ body {
     width: 91px;
     height: 91px;
     flex-shrink: 0;
-    background-image: url('./static/images/lose.jpg');
+    background-image: url('../images/imgLose.png');
 }
 
 .fin__game_tex {
