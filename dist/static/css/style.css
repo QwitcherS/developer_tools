@@ -195,7 +195,7 @@ body {
 }
 
 .fin__game {
-    background: url('../dist/static/images/3.jpg') no-repeat center;
+    background: url('../static/images/3.jpg') no-repeat center;
     background-blend-mode: multiply;
     background-color: rgb(0 0 0 40%);
 }
@@ -234,7 +234,7 @@ body {
     width: 91px;
     height: 91px;
     flex-shrink: 0;
-    background-image: url('../dist/static/images/imgWin.png');
+    background-image: url('../static/images/win.jpg');
 }
 
 .fin__game_imgconq {
@@ -242,7 +242,7 @@ body {
     width: 91px;
     height: 91px;
     flex-shrink: 0;
-    background-image: url('../dist/static/images/imgLose.png');
+    background-image: url('../static/images/lose.jpg');
 }
 
 .fin__game_tex {
